@@ -6,6 +6,9 @@ from enum import Enum
 from collections.abc import AsyncIterable
 from typing import TYPE_CHECKING, Annotated, Any, Literal
 
+from azure.identity import ClientSecretCredential
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+
 import httpx
 
 from dotenv import load_dotenv
@@ -70,7 +73,21 @@ def _get_azure_openai_chat_completion_service() -> AzureChatCompletion:
     Returns:
         AzureChatCompletion: The configured Azure OpenAI service.
     """
-    return AzureChatCompletion(service_id=service_id)
+
+    tenant_id = os.getenv("AZURE_TENANT_ID")
+    client_id = os.getenv("AZURE_CLIENT_ID")
+    client_secret = os.getenv("AZURE_CLIENT_SECRET")
+    #conn_string = os.getenv("AZURE_AIPROJECT_CONNECTION_STRING")
+
+    
+    #print(f"Client ID: {client_id}")
+
+    token_provider = get_bearer_token_provider(
+            ClientSecretCredential(tenant_id, client_id, client_secret), "https://cognitiveservices.azure.com/.default"
+        )
+
+    return AzureChatCompletion(service_id=service_id,  ad_token_provider=token_provider)
+
 
 
 def _get_openai_chat_completion_service() -> OpenAIChatCompletion:

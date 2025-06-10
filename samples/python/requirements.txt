@@ -1,2 +1,6 @@
 a2a-sdk
 uvicorn
+httpx
+click
+pydantic
+asyncclick>=8.1.3
