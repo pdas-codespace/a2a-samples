@@ -15,14 +15,14 @@ Sample agent to (mock) fill out expense reports. Showcases multi-turn interactio
 Demonstrates an MCP-enabled agent built with [AG2](https://github.com/ag2ai/ag2) that is exposed through the A2A protocol.
 
 
-* [**Azure AI Foundry Agent Service**](/samples/python/agents/azureaifoundry_sdk/azurefoundryagent/README.md)  
+* [**Azure AI Foundry Agent Service**](/samples/python/agents/azureaifoundry_sdk/README.md)  
 Sample agent build with [Azure AI Foundry Agent Service](https://learn.microsoft.com/en-us/azure/ai-services/agents/overview)
 
 * [**LangGraph**](/samples/python/agents/langgraph/README.md)  
 Sample agent which can convert currency using tools. Showcases multi-turn interactions, tool usage, and streaming updates. 
 
 * [**CrewAI**](/samples/python/agents/crewai/README.md)  
-Sample agent which can generate images. Showcases multi-turn interactions and sending images through A2A.
+Sample agent which can generate images. Showcases use of CrewAI and sending images through A2A.
 
 * [**LlamaIndex**](/samples/python/agents/llama_index_file_chat/README.md)  
 Sample agent which can parse a file and then chat with the user using the parsed content as context. Showcases multi-turn interactions, file upload and parsing, and streaming updates. 
